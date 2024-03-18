@@ -16,7 +16,7 @@ phases:
 artifacts:
   files:
     - '**/*'
-    - appspec.yml
+    - AppSpec.yaml
   base-directory: 'build'
 
 cache:
