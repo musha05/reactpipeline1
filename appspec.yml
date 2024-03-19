@@ -1,8 +1,12 @@
 version: 0.0
-os: linux
-files:
-  - source: /index.html
-    destination: /var/www/html/
+Resources:
+  - TargetService:
+      Type: AWS::EC2::Instance
+      Properties:
+        LogicalName: MyEC2Instance
+        Name: test
+        ScriptPath: scripts/
+        TimeoutInSeconds: 3600
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
