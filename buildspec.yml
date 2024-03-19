@@ -15,9 +15,11 @@ phases:
       
 artifacts:
   files:
-    - '**/*'
+    - public/**/*
+    - src/**/*
+    - package.json
     - appspec.yml
-  base-directory: 'build'
+    - scripts/**/*
 
 cache:
   paths:
