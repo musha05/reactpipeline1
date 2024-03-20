@@ -8,5 +8,5 @@ hooks:
     - location: scripts/application-stop.sh
       timeout: 300
   ApplicationStart:
-    - location: /application-start.sh
+    - location: scripts/application-start.sh
       timeout: 300
