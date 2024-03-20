@@ -11,10 +11,6 @@ hooks:
   - location: scripts/install_dependencies
       timeout: 300
       runas: ec2-user
-  ApplicationStop:
-    - location: scripts/afterinstallation
-      timeout: 300
-      runas: root
   - location: scripts/start_server
       timeout: 300
       runas: ec2-user
