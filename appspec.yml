@@ -2,21 +2,14 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/html
+    destination: /var/www/html/react-app
 hooks:
-# ApplicationStop:
-# DownloadBundle:
-#  BeforeInstall:
-#    - location: scripts/before_install.sh
-#      timeout: 300
-#      runas: root
-# Install:
+  ApplicationStop:
+    - location: deploy-scripts/application-stop.sh
+      timeout: 300
   AfterInstall:
-    - location: scripts/after_install.sh
+    - location: deploy-scripts/after-install.sh
       timeout: 300
-      runas: root
   ApplicationStart:
-    - location: scripts/application_start.sh
+    - location: deploy-scripts/application-start.sh
       timeout: 300
-      runas: root
-# ValidateService:
