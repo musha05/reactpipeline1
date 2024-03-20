@@ -2,14 +2,11 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/html/react-app
+    destination: /var/www/html
 hooks:
   ApplicationStop:
-    - location: deploy-scripts/application-stop.sh
-      timeout: 300
-  AfterInstall:
-    - location: deploy-scripts/after-install.sh
+    - location: scripts/application-stop.sh
       timeout: 300
   ApplicationStart:
-    - location: deploy-scripts/application-start.sh
+    - location: /application-start.sh
       timeout: 300
