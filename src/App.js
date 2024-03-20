@@ -1,25 +1,17 @@
-const express = require('express');
-const app = express();
-const hostname = '13.233.149.112'; // Your server ip address
-const port = 3000;
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-const version = '3,000,000';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-app.get('/', (req, res) => {
-    // set response content    
-        res.send(`<html>
-                    <body>
-                        <h1 style="color:blue;text-align: center;margin-top: 100px;"> [Version ${version}]: THis is AMAZING!!! Like & Subscribe!</h1>
-                        <div style="position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%)">
-                            <img src="https://picsum.photos/400/400?random=1">
-                        </div>
-                    </body>
-                   </html>`);
- 
-  console.log(`[Version ${version}]: New request => http://${hostname}:${port}`+req.url);
-
-})
-
-app.listen(port, () => {
-    console.log(`[Version ${version}]: Server running at http://${hostname}:${port}/`);
-})
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
