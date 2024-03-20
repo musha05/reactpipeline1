@@ -1,22 +1,23 @@
 version: 0.0
 os: linux
-Resources:
-  - TargetService:
-      Type: AWS::EC2::Instance
-      Properties:
-        LogicalName: MyEC2Instance
-        Name: test
-        ScriptPath: scripts/
-        TimeoutInSeconds: 3600
+files:
+  - source: /index.html
+    destination: /var/www/html/
 hooks:
   BeforeInstall:
-    - location: scripts/install_dependencies
+    - location: scripts/stop_server
       timeout: 300
-      runas: ec2-user
-    - location: scripts/start_server
+      runas: ec2-user  
+  - location: scripts/install_dependencies
       timeout: 300
       runas: ec2-user
   ApplicationStop:
-    - location: scripts/stop_server
+    - location: scripts/afterinstallation
+      timeout: 300
+      runas: ec2-user
+  - location: scripts/start_server
+      timeout: 300
+      runas: ec2-user
+  - location: scripts/install_dependencies
       timeout: 300
       runas: ec2-user
